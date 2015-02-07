@@ -3,11 +3,10 @@ package tutorial;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class HelloApp {
+public class DrawingApp {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
-        HelloService helloService = context.getBean(HelloService.class);
-        System.out.println(helloService.sayHello());
-        System.out.println("Hell");
+        Triangle triangle = context.getBean(Triangle.class);
+        triangle.draw();
     }
 }
