@@ -14,7 +14,12 @@
     </bean>
 
     <bean id="circle" class="tutorial.Circle">
-        <property name="center" ref="pointA"/>
+    </bean>
+
+    <bean id="center" class="tutorial.Point">
+        <qualifier value="circleRelated"/>
+        <property name="x" value="1"/>
+        <property name="y" value="0"/>
     </bean>
 
     <bean id="pointA" class="tutorial.Point">
@@ -31,7 +36,5 @@
         <property name="x" value="0"/>
         <property name="y" value="20"/>
     </bean>
-
-    <alias name="triangle" alias="triangle-alias"/>
 
 </beans>
