@@ -1,43 +1,42 @@
 package tutorial;
 
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanNameAware;
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
+public class Triangle implements Shape {
 
-import java.util.List;
-
-public class Triangle implements ApplicationContextAware, BeanNameAware, InitializingBean, DisposableBean {
-
-    private List<Point> points;
-
-    private ApplicationContext context = null;
+    private Point pointA;
+    private Point pointB;
+    private Point pointC;
 
     public void draw() {
-        points.forEach(System.out::println);
+        System.out.println(pointA);
+        System.out.println(pointB);
+        System.out.println(pointC);
     }
 
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.context = applicationContext;
+    public Point getPointA() {
+        return pointA;
     }
 
-    @Override
-    public void setBeanName(String s) {
-        System.out.println("Bean name is: " + s);
+    public void setPointA(Point pointA) {
+        this.pointA = pointA;
     }
 
-    public List<Point> getPoints() {
-        return points;
+    public Point getPointB() {
+        return pointB;
     }
 
-    public void setPoints(List<Point> points) {
-        this.points = points;
+    public void setPointB(Point pointB) {
+        this.pointB = pointB;
     }
 
-    public void init() {
+    public Point getPointC() {
+        return pointC;
+    }
+
+    public void setPointC(Point pointC) {
+        this.pointC = pointC;
+    }
+
+    public void initBean() {
         System.out.println("Initialization");
     }
 
@@ -45,13 +44,4 @@ public class Triangle implements ApplicationContextAware, BeanNameAware, Initial
         System.out.println("Destroy");
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("Initializing Bean init method");
-    }
-
-    @Override
-    public void destroy() throws Exception {
-        System.out.println("Disposable Bean destroy method");
-    }
 }
