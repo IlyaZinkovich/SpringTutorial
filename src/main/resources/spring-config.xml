@@ -6,6 +6,10 @@
     <context:annotation-config />
     <context:component-scan base-package="tutorial"/>
     <bean id="triangle" class="tutorial.Triangle">
-        <property name="type" value="Equilateral"/>
+        <!--<property name="type" value="Equilateral"/>-->
+        <!--<constructor-arg value="Equilateral"/>-->
+        <!--<constructor-arg value="20" type="java.lang.String"/>-->
+        <constructor-arg index="0" value="Equilateral"/>
+        <constructor-arg index="1" value="20"/>
     </bean>
 </beans>
