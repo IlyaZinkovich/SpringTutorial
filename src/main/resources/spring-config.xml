@@ -7,17 +7,18 @@
     <context:annotation-config />
     <context:component-scan base-package="tutorial"/>
 
-    <bean id="parentTriangle" class="tutorial.Triangle" abstract="true">
-        <property name="points">
-            <list>
-                <ref bean="pointA"/>
-            </list>
-        </property>
-    </bean>
+    <!--<bean id="parentTriangle" class="tutorial.Triangle" abstract="true">-->
+        <!--<property name="points">-->
+            <!--<list>-->
+                <!--<ref bean="pointA"/>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
 
-    <bean id="triangle" class="tutorial.Triangle" parent="parentTriangle" init-method="init" destroy-method="destroyBean">
+    <bean id="triangle" class="tutorial.Triangle">
         <property name="points">
             <list merge="true">
+                <ref bean="pointA"/>
                 <ref bean="pointB"/>
                 <ref bean="pointC"/>
             </list>
@@ -40,5 +41,7 @@
     </bean>
 
     <alias name="triangle" alias="triangle-alias"/>
+
+    <bean class="tutorial.DisplayBeanNamePostProcessor"/>
 
 </beans>
