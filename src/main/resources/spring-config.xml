@@ -5,26 +5,19 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <context:annotation-config />
     <context:component-scan base-package="tutorial"/>
-    <bean id="triangle" class="tutorial.Triangle">
-        <property name="points">
-            <list>
-                <ref bean="point1"/>
-                <ref bean="point2"/>
-                <ref bean="point3"/>
-            </list>
-        </property>
+    <bean id="triangle" class="tutorial.Triangle" autowire="byName">
     </bean>
-    <bean id="point1" class="tutorial.Point">
+    <bean id="pointA" class="tutorial.Point">
         <property name="x" value="0"/>
         <property name="y" value="0"/>
     </bean>
 
-    <bean id="point2" class="tutorial.Point">
+    <bean id="pointB" class="tutorial.Point">
         <property name="x" value="-20"/>
         <property name="y" value="0"/>
     </bean>
 
-    <bean id="point3" class="tutorial.Point">
+    <bean id="pointC" class="tutorial.Point">
         <property name="x" value="0"/>
         <property name="y" value="20"/>
     </bean>
